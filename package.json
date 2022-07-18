@@ -5,7 +5,11 @@
   "author": "nefrob",
   "license": "MIT",
   "scripts": {
-    "test": "jest --coverage --coverageReporters=cobertura"
+    "test": "jest --silent --coverage"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["json-summary", "text", "text-summary"]
   },
   "devDependencies": {
     "jest": "^28.1.2"
