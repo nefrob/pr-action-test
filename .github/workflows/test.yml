@@ -14,7 +14,7 @@ jobs:
           format: markdown
           output: both
       - name: Update PR description
-        uses: nefrob/pr-description@v0.1.0
+        uses: nefrob/pr-description@v1.0.0
         with:
           content: code-coverage-results.md
           contentIsFilePath: true
