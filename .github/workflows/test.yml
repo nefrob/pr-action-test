@@ -1,7 +1,6 @@
 name: Workflow test
 on: 
-  pull_request:
-    types: [labeled]
+  push:
 jobs:
   coverage:
     runs-on: ubuntu-latest
@@ -9,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Update PR description
-        uses: nefrob/pr-description@v1.0.0
+        uses: nefrob/pr-description@nefrob/push-events-handling
         with:
           content: "new output"
           token: ${{ secrets.GITHUB_TOKEN }}
