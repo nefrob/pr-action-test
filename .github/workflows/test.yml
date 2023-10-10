@@ -8,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Update PR description
-        uses: nefrob/pr-description@master
+        uses: nefrob/pr-description@nefrob/test-newline-issue-4
         with:
           content: "${{ github.event.pull_request.body }}\n\nSome additional text"
           token: ${{ secrets.GITHUB_TOKEN }}
