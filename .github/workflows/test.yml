@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Update PR description
-        uses: nefrob/pr-description@nefrob/fix-es-module-errors
+        uses: nefrob/pr-description@master
         with:
           content: "\n\n${{ env.MY_VAR }}\n\nSome additional text"
           token: ${{ secrets.GITHUB_TOKEN }}
