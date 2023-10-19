@@ -1,14 +1,19 @@
 name: Workflow test
 on: 
   pull_request:
+
+env:
+  MY_VAR: 123
+
 jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Update PR description
-        uses: nefrob/pr-description@nefrob/test-newline-issue-4
+        uses: nefrob/pr-description@master
         with:
-          content: "${{ github.event.pull_request.body }}\n\nSome additional text"
+          content: "\n\n${{ env.MY_VAR }}\n\nSome additional text"
           token: ${{ secrets.GITHUB_TOKEN }}
