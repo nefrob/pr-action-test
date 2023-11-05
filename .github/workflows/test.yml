@@ -1,21 +1,20 @@
 name: Workflow test
-on: [pull_request]
+on: 
+  pull_request:
+  push:
+
+env:
+  MY_VAR: 123
+
 jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Create code coverage summary
-        uses: irongut/CodeCoverageSummary@v1.2.0
-        with:
-          filename: coverage/cobertura-coverage.xml
-          badge: true
-          format: markdown
-          output: both
+
       - name: Update PR description
-        uses: nefrob/pr-description@v0.1.0
+        uses: nefrob/pr-description@nefrob/bump-nodejs-to-latest-lts
         with:
-          content: code-coverage-results.md
-          contentIsFilePath: true
+          content: "\n\n${{ env.MY_VAR }}\n\nSome additional text node20"
           token: ${{ secrets.GITHUB_TOKEN }}
